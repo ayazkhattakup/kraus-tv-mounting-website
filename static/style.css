@@ -684,12 +684,13 @@ footer .sm-text {
     left: 0;
     background-color: #225379d2;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     z-index: 100;
     gap: 5rem;
-    top: -100%;
+    /* top: -100%; */
 }
 
 .get-quote-form-wrapper .get-quote-form {
@@ -704,6 +705,8 @@ footer .sm-text {
     align-items: start;
 }
 
+
+
 .get-quote-form-wrapper .get-quote-form::-webkit-scrollbar {
     display: none;
 }
@@ -712,6 +715,16 @@ footer .sm-text {
     min-width: 100%;
     max-width: 100%;
 
+}
+
+@media screen and (max-width:600px) {
+    .get-quote-form-wrapper .get-quote-form .form-part {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .get-quote-form-wrapper .get-quote-form .form-part .form-part-heading {
@@ -785,4 +798,30 @@ footer .sm-text {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.get-quote-form-wrapper .get-quote-form .input-border {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked:before {
+    content: "";
+    display: block;
+    position: relative;
+    left: -1px;
+    top: -1px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.get-quote-form-wrapper .get-quote-form .input-border-active {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0px 0px 10px var(--primary-color);
 }

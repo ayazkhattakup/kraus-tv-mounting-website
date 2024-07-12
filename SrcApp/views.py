@@ -29,8 +29,8 @@ def send_get_quote_email(request):
     if contact is not None and contact != '':
         subject = f"Quote Request"
         message = f"You have a Quote request from {customer_name}, phone number: {contact},  TV Size : {tv_size},  Mount Type : {mount_type},  Wiring Treatment  : {wires_condition},  Wall Type  : {wall_type}. Add-Ons :  {add_ons}"
-        from_email = 'tamerlansmtp@gmail.com'
-        recipient_list = ['tamerlansmtp@gmail.com']
+        from_email = 'ayazkhattakupwork@gmail.com'
+        recipient_list = ['ayazkhattakupwork@gmail.com', 'pacoqara@gmail.com']
 
         send_mail(subject, message, from_email, recipient_list)
 
@@ -43,8 +43,7 @@ def send_get_quote_email(request):
 
 
 def send_phone_number_email(request):
-    message = None 
-    try:    
+        message = None 
         request_body = json.loads(request.boyd)
         phone = request_body.get('phone')
         name = request_body.get('name')
@@ -53,15 +52,11 @@ def send_phone_number_email(request):
             name = 'Name Not Specified'
         subject = f"Quote Request"
         message = f"You have a Quote request from {name}, phone number: {phone}"
-        from_email = 'tamerlansmtp@gmail.com'
-        recipient_list = ['tamerlansmtp@gmail.com']
+        from_email = 'ayazkhattakupwork@gmail.com'
+        recipient_list = [ 'ayazkhattakupwork@gmail.com','pacoqara@gmail.com']
 
         send_mail(subject, message, from_email, recipient_list)
         message = 'success'
 
 
-    except Exception as e:
-        print(e)
-        message = 'error'
-    
-    return JsonResponse({'message':message})
+        return JsonResponse({'message':message})
